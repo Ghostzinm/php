@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #f2f2f2;
+}
+
+.formulario {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 20px;
+    background-color: #22222225;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.table-responsive {
+    border-radius: 15px;
+}
+
+.conteudo-principal {
+    min-height: 100vh;
+}
