@@ -1,30 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/tabela.css">
-    <title>Aula 02 - PHP</title>
-</head>
 
 <?php
+
+include("./template/header.php");
 
 $dsn = 'mysql:dbname=forms;host=127.0.0.1';
 $usuario = 'root';
 $senha = '';
 
-$coneexaoBanco = new PDO($dsn, $usuario, $senha);
+$conexaoBanco = new PDO($dsn, $usuario, $senha);
 
 $scriptConsulta = 'SELECT * FROM tb_cadastro';
 
-$resultadoConsulta = $coneexaoBanco->query($scriptConsulta)->fetchAll();
+$resultadoConsulta = $conexaoBanco->query($scriptConsulta)->fetchAll();
 
 
 ?>
 
-<body>
     <main class="conteudo-principal container d-flex justify-content-center align-items-center">
         <section class="formulario p-4">
             <h1 class="fs-2 text-center">Tabela de usuario</h1>
@@ -46,9 +37,9 @@ $resultadoConsulta = $coneexaoBanco->query($scriptConsulta)->fetchAll();
                                 <td><?= $linha['telefone']; ?></td>
                                 <td><?= $linha['usuario']; ?></td>
                                 <td>
-                                    <button type="submit" class="btn btn-primary btn-sm">Abrir</button>
-                                    <button class="btn btn-warning btn-sm">Editar</button>
-                                    <button class="btn btn-danger btn-sm">Excluir</button>
+                                    <a href="./impressao.php?idConsulta=<?= $linha['id'] ?>" type="submit" class="btn btn-primary btn-sm">Abrir</a>
+                                    <a href="" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="" class="btn btn-danger btn-sm">Excluir</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -57,6 +48,4 @@ $resultadoConsulta = $coneexaoBanco->query($scriptConsulta)->fetchAll();
             </div>
         </section>
     </main>
-</body>
-
-</html>
+    <?php include("./template/footer.php"); ?>
