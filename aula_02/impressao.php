@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-        <link rel="stylesheet" href="./css/style.css">
-        <link rel="stylesheet" href="./css/style.css">
-    <title>Formulario</title>
-</head>
 
-<body>
-    <?php
+<?php 
 
+include("./template/header.php");
 
     // $nomeForm = $_POST["nome"];
     // $telForm = $_POST["tel"];
     // $userForm = $_POST["user"];
     // $senhaForm = $_POST["senha"];
 
-    $dsn = 'mysql:dbname=forms;host=127.0.0.1';
+    $dsn = 'mysql:dbname=db_forms;host=127.0.0.1';
     $usuario = 'root';
     $senha = '';
 

@@ -3,7 +3,7 @@
 
 include("./template/header.php");
 
-$dsn = 'mysql:dbname=forms;host=127.0.0.1';
+$dsn = 'mysql:dbname=db_forms;host=127.0.0.1';
 $usuario = 'root';
 $senha = '';
 
@@ -22,7 +22,7 @@ $resultadoConsulta = $conexaoBanco->query($scriptConsulta)->fetchAll();
             <div class="table-responsive">
                 <table class="table">
                     <thead class="table-dark text-center">
-                        <tr>
+                        <tr>+
                             <th scope="col">#</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Telefone</th>
