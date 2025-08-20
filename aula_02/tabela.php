@@ -22,7 +22,7 @@ $resultadoConsulta = $conexaoBanco->query($scriptConsulta)->fetchAll();
             <div class="table-responsive">
                 <table class="table">
                     <thead class="table-dark text-center">
-                        <tr>+
+                        <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Telefone</th>
@@ -38,12 +38,12 @@ $resultadoConsulta = $conexaoBanco->query($scriptConsulta)->fetchAll();
                                 <td><?= $linha['usuario']; ?></td>
                                 <td>
                                     <a href="./impressao.php?idConsulta=<?= $linha['id'] ?>" type="submit" class="btn btn-primary btn-sm">Abrir</a>
-                                    <a href="" class="btn btn-warning btn-sm">Editar</a>
-                                    <a href="" class="btn btn-danger btn-sm">Excluir</a>
+                                    <a href="./index.php?id=<?= $linha['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="./form-delete.php?idDelete=<?= $linha['id'] ?>" class="btn btn-danger btn-sm">Excluir</a>
                                 </td>
                             </tr>
                         <?php } ?>
-                    </tbody>
+                    </tbody> 
                 </table>
             </div>
         </section>

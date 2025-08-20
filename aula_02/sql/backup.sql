@@ -49,3 +49,7 @@ VALUES (
         'ana',
         '1234'
     );
+
+DELETE FROM tb_cadastro WHERE id = 31;
+
+UPDATE tb_cadastro SET nome = "paulo";
