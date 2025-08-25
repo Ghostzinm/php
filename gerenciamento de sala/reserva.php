@@ -30,7 +30,7 @@ $scriptConsulta = 'SELECT * FROM tb_salas';
             </div>
             <div class="row mb-3">
                 <div class="col-2">
-                    <label name="começo" class="form-label">dia</label>
+                    <label name="data" class="form-label">dia</label>
                     <input type="date" class="form-control" id="data">
                 </div>
             </div>
