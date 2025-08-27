@@ -22,31 +22,40 @@ $resultadoConsulta = $conexaoBanco->query($scriptConsulta)->fetchAll();
                 <th scope="col">Quem usa</th>
                 <th scope="col">Dia</th>
                 <th scope="">Botões</th>
-                <a href="./cadastro.php" class="btn btn-warning mb-2"><i class="bi bi-plus-lg"></i></a>
+                <a href="./addSala.php" class="btn btn-warning mb-2"><i class="bi bi-plus-lg"></i></a>
             </thead>
             <tbody>
                 <?php foreach ($resultadoConsulta as $linha) { ?>
                     <tr>
-                        <td name="a" ><?= $linha['numero']; ?></td>
+                        <td name="a"><?= $linha['numero']; ?></td>
 
-                        
-                            <?php
-                            if (empty($linha['turma']) && empty($linha['professor'])) {
-                                ?>
-                                    <td>Disponível</td>
-                                <?php
-                                } else { ?>
-                                    <td> <?= $linha['turma']; ?>/<?= $linha['professor']; ?></td>
-                                <?php } ?>      
 
-                    <td>
-                        <?= $linha['dia']; ?>
-                    </td>
+                        <?php
+                        if (empty($linha['turma']) && empty($linha['professor'])) {
+                        ?>
+                            <td>Disponível</td>
+                            <td>
+                                <?= $linha['dia']; ?>
+                            </td>
 
-                    <td>
-                        <a href="./reserva.php" class="btn btn-success">Reservar</a>
-                        <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                    </td>
+                            <td>
+                                <a href="./reserva.php?sala=<?=$linha['numero'] ?>" class="btn btn-success">Reservar</a>
+                                <a href="./form-liberar.php" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                            </td>
+                        <?php
+                        } else { ?>
+                            <td> <?= $linha['turma']; ?>/<?= $linha['professor']; ?></td>
+                            <td>
+                                <?= $linha['dia']; ?>
+                            </td>
+
+                            <td>
+                                <a class="bnt-ja">Reservar</a>
+                                <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                            </td>
+                        <?php } ?>
+
+
                     </tr>
                 <?php } ?>
             </tbody>

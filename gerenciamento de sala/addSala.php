@@ -1,5 +1,3 @@
-
-
 <?php
 
 include("./templates/header.php");
@@ -10,8 +8,7 @@ $senha = '';
 
 $conexaoBanco = new PDO($dsn, $usuario, $senha);
 
-$numero = $_GET['sala'];
-$scriptConsulta = 'SELECT * FROM tb_salas WHERE numero = $numero';
+$scriptConsulta = 'SELECT * FROM tb_salas';
 
 
 ?>
@@ -20,23 +17,25 @@ $scriptConsulta = 'SELECT * FROM tb_salas WHERE numero = $numero';
     <h1 class="text-center my-4">Reservar salas</h1>
 
     <main class="container my-4 ">
-        <form action="./form-reserva.php" method="post" class="shadow-lg p-4 rounded ">
-        <input type="hidden" name="sala" value="<?= $numero ?>">
+        <form action="./form-sala.php" method="post" class="shadow-lg p-4 rounded ">
             <div class="mb-3">
-                <label class="form-label">reservando a sala <?= $numero?></label>
+                <label class="form-label">adicionar e reservar sala</label>
             </div>
             <div class="mb-3">
+                <label  class="form-label">Sala</label>
+                <input name="num" type="number" class="form-control" id="sala" placeholder="Digite o número da sala" required>
+            <div class="mb-3">
                 <label  class="form-label">Turma</label>
-                <input name="turma" type="text" class="form-control" id="turma" placeholder="Digite o nome da turma">
+                <input name="turmaAdd" type="text" class="form-control" id="turma" placeholder="Digite o nome da turma">
             </div>
             <div class="mb-3">
                 <label  class="form-label">Professor</label>
-                <input name="prof" type="text" class="form-control" id="prof" placeholder="Digite o nome do professor" required>
+                <input name="profAdd" type="text" class="form-control" id="prof" placeholder="Digite o nome do professor" required>
             </div>
             <div class="row mb-3">
                 <div class="col-2">
                     <label  class="form-label">dia</label>
-                    <input name="data" type="date" class="form-control" id="data" required>
+                    <input name="dataAdd" type="date" class="form-control" id="data" required>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary mt-4">Cadastrar</button>
