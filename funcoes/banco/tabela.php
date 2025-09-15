@@ -1,20 +1,41 @@
 <?php 
+function buscarUsuarios() {
+    
+    $dsn = 'mysql:dbname=db_gerenciador_sala;host=127.0.0.1';
+    $usuario = 'root';
+    $senha = '';
 
-//  Função inserir usuário
-// Crie uma função que receba nome e email e insira na tabela usuarios.
+        $conexaoBanco = new PDO($dsn, $usuario, $senha);
+        $conexaoBanco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-function inserirUsuario($nome, $email) {
-    include "../config.php";
+        $scriptConsulta = 'SELECT * FROM tb_docente';
 
-    $sql = "select * from usuarios where email = :email, nome = :nome";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':nome', $nome);
-    $stmt->bindParam(':email', $email);
-    $stmt->execute();
-
-    echo "Usuário inserido com sucesso!";
+         return $conexaoBanco->query($scriptConsulta)->fetchAll(PDO::FETCH_ASSOC);
 }
 
-echo inserirUsuario();
+$resultadoConsulta = buscarUsuarios();
 
 ?>
+
+
+<section>
+    <h1 class="text-center my-4">Tabela de Usuários</h1>
+    <main class="container my-4 ">
+        <table class="table table-success table-striped table-hover text-center align-middle shadow-lg ">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">RA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($resultadoConsulta as $linha) { ?>
+                    <tr>
+                        <td><?= $linha['nome']; ?></td>
+                        <td><?= $linha['ra_docente']; ?></td>
+                        <?php } ?>
+                    </tr>
+            </tbody>
+        </table>
+    </main>
+</section>
