@@ -19,12 +19,12 @@ function inserirUser($nome, $email)
 {
     $conn = conexaoBanco();
     $sql = "INSERT INTO pessoas (nome, email) VALUES (:nome, :email)";
-    $dados = $conn->prepare($sql)->execute([
+    $prepare = $conn->prepare($sql)->execute([
         ':nome' => $nome,
         ':email' => $email
     ]);
 
-    if($dados){
+    if($prepare){
         echo "<h1>Dados inseridos </h1>";
     }else{
         echo "<h1>não inseridos</h1>";
