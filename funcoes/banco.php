@@ -41,9 +41,9 @@ function listarUsers($tb_name = 'pessoas'): array
 
     $scriptSQL = "SELECT * FROM $tb_name";
 
-    $dados = $conn->query($scriptSQL)->fetchAll();
+    $prepare = $conn->query($scriptSQL)->fetchAll();
 
-    return $dados;
+    return $prepare;
 }
 
 $resultadoLista = listarUsers();
@@ -55,8 +55,8 @@ function pesquisar($id = 0, $tb_name='pessoas') : array{
     $conn = conexaoBanco();
     $scriptSQL = "SELECT * FROM $tb_name WHERE id = $id";
 
-    $dados = $conn->query($scriptSQL)->fetchAll();
-    return $dados;
+    $prepare = $conn->query($scriptSQL)->fetchAll();
+    return $prepare;
 }
 
 var_dump(pesquisar(6));
