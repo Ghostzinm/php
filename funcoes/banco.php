@@ -1,5 +1,7 @@
 <?php
 
+// //  Função de conexão com banco
+// Crie uma função que retorne um objeto PDO conectado ao banco
 function conexaoBanco(): PDO
 {
     $dsn = "mysql:dbname=db_gerenciador_sala;host=127.0.0.1";
@@ -11,6 +13,8 @@ function conexaoBanco(): PDO
     return $conn;
 }
 
+// Função inserir usuário
+// Crie uma função que receba nome e email e insira na tabela usuarios.
 function inserirUser($nome, $email)
 {
     $conn = conexaoBanco();
@@ -28,6 +32,9 @@ function inserirUser($nome, $email)
 
 }
 
+// . Função listar usuários
+// Crie uma função que recebe o nome de uma tabela e retorne todos os dados 
+// dela
 function listarUsers($tb_name = 'pessoas'): array
 {
     $conn = conexaoBanco();
@@ -41,6 +48,9 @@ function listarUsers($tb_name = 'pessoas'): array
 
 $resultadoLista = listarUsers();
 
+// Função buscar usuário por ID
+// Crie uma função que receba um nome de tabela e um id e retorne os dados 
+// correspondente.
 function pesquisar($id = 0, $tb_name='pessoas') : array{
     $conn = conexaoBanco();
     $scriptSQL = "SELECT * FROM $tb_name WHERE id = $id";
@@ -51,6 +61,9 @@ function pesquisar($id = 0, $tb_name='pessoas') : array{
 
 var_dump(pesquisar(6));
 
+// Função excluir usuário
+// Crie uma função que receba nome de tabela e um id e exclua o usuário do 
+// banco
 function deletarUser($id, $tb_name = 'pessoas'): bool {
     $conn = conexaoBanco();
     $script = "DELETE FROM $tb_name WHERE id = :id";
