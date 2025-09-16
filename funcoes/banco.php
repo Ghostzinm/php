@@ -54,9 +54,9 @@ var_dump(pesquisar(6));
 function deletarUser($id, $tb_name = 'pessoas'): bool {
     $conn = conexaoBanco();
     $script = "DELETE FROM $tb_name WHERE id = :id";
-    $ok = $conn->prepare($script)->execute([":id" => $id]);
+    $prepare = $conn->prepare($script)->execute([":id" => $id]);
 
-    return $ok;
+    return $prepare;
 }
 
 if (deletarUser(10)) {
