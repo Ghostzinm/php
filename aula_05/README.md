@@ -6,7 +6,6 @@ Este projeto faz parte da aula 05 do curso de PHP. Ele foi desenvolvido para dem
 
 ## Estrutura
 
-- O projeto está localizado na pasta `/php/aula_05/`.
 - Os arquivos principais incluem scripts PHP e este arquivo de documentação.
 
 ## Como Executar
